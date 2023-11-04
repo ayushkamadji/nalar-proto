@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import ApplicationShell from './application-shell'
+import { cn } from '@/lib/utils'
+import "flag-icons/css/flag-icons.min.css"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,7 +19,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={
+        cn([
+          inter.className,
+          // "dark"
+        ])
+      }>
         <ApplicationShell>
           {children}
         </ApplicationShell>

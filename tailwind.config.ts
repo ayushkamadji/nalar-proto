@@ -41,8 +41,12 @@ const config: Config = {
       purple: colors.violet,
       yellow: colors.amber,
       pink: colors.fuchsia,
+      red: colors.rose,
+      indigo: colors.indigo,
+      blue: colors.blue,
     },
   },
   plugins: [],
+  darkMode: "class",
 };
 export default config;

@@ -51,7 +51,7 @@ export default function ApplicationShell({ children }: ApplicationShellProps) {
                 className="mr-3 h-8"
                 alt="Nalar Logo"
               />
-              <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">nalar</span>
+              <span className="self-center text-2xl font-semibold text-black whitespace-nowrap dark:text-white">nalar</span>
             </a>
 
           </div>
