@@ -107,7 +107,7 @@ function Accordion({ title, initialStateActive, children }: AccordionProps) {
       data-accordion="collapse"
       className={cn([
         "w-full",
-        active && "bg-white dark:bg-gray-900 text-gray-900 dark:text-white",
+        active && "text-gray-900 dark:text-white",
         !active && "text-gray-500 dark:text-gray-400",
       ])} >
       <h2 id="accordion-flush-heading-1">
