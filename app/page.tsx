@@ -9,7 +9,7 @@ export default function Home() {
         className="h-24"
         alt="Nalar Logo"
       />
-      <h1>Welcome to your Nalar dashboard!</h1>
+      <h1 className="text-black dark:text-white">Welcome to your Nalar dashboard!</h1>
     </main>
   )
 }
