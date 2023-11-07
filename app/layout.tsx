@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import ApplicationShell from './application-shell'
 import { cn } from '@/lib/utils'
 import "flag-icons/css/flag-icons.min.css"
 
@@ -22,12 +21,10 @@ export default function RootLayout({
       <body className={
         cn([
           inter.className,
-          // "dark"
+          "light"
         ])
       }>
-        <ApplicationShell>
-          {children}
-        </ApplicationShell>
+        {children}
       </body>
     </html>
   )

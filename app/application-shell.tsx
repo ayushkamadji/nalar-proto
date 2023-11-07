@@ -7,7 +7,7 @@ type ApplicationShellProps = {
 
 export default function ApplicationShell({ children }: ApplicationShellProps) {
   return (
-    <div className="antialiased bg-gray-50 dark:bg-gray-900">
+    <div className="antialiased bg-gray-50 dark:bg-gray-900 light">
       <nav className="bg-white border-b border-gray-200 px-4 py-2.5 dark:bg-gray-800 dark:border-gray-700 fixed left-0 right-0 top-0 z-50">
         <div className="flex flex-wrap justify-between items-center">
           <div className="flex justify-start items-center">
@@ -413,6 +413,13 @@ export default function ApplicationShell({ children }: ApplicationShellProps) {
             <div className="tooltip-arrow" data-popper-arrow></div>
           </div>
 
+        </div>
+        <div className="fixed left-6 bottom-24">
+          <Link href="/partner-example">
+            <button type="button" className="flex shadow-xl items-center justify-center text-white bg-pink-700 rounded-full hover:bg-pink-800 dark:bg-pink-600 dark:hover:bg-pink-700 focus:ring-4 focus:ring-pink-300 px-3 py-2 focus:outline-none dark:focus:ring-pink-800">
+              <span className="text-xs">DEMO: Go to example partner form</span>
+            </button>
+          </Link>
         </div>
       </aside>
       {children}

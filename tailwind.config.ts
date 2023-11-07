@@ -32,6 +32,7 @@ const config: Config = {
       },
     },
     colors: {
+      ...colors,
       transparent: "transparent",
       current: "currentColor",
       black: colors.black,

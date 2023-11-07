@@ -1,4 +1,5 @@
 import React from 'react'
+import ApplicationShell from '../application-shell'
 
 
 type ReportLayoutProps = {
@@ -7,8 +8,8 @@ type ReportLayoutProps = {
 
 export default function ReportLayout({ children }: ReportLayoutProps) {
   return (
-    <div>
+    <ApplicationShell>
       {children}
-    </div>
+    </ApplicationShell>
   )
 }
