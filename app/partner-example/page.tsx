@@ -134,6 +134,26 @@ function Textarea() {
   )
 }
 
+type SelectInputProps = {
+  label: string
+  name: string
+  options: string[]
+}
+
+function SelectInput({ label, name, options }: SelectInputProps) {
+  return (
+    <>
+      <label htmlFor={name} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{label}</label>
+      <select id={name} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+        {options.map((option, index) => (
+          <option key={index}>{option}</option>
+        ))}
+      </select>
+    </>
+  )
+}
+
 type RangeStepperProps = {
   label: string
   name: string
@@ -165,10 +185,10 @@ export default function NewReportPage() {
   return (
     <main className="grid grid-cols-[1fr_2fr] bg-white text-black">
       <div className="bg-sky-500 pt-24 px-12">
-        <div>
+        <div className="fixed top-[160px] left-[24px]">
           <Image className="mb-24" src="/wizz.png" width={200} height={200} alt="wizz-logo" />
           <p className="text-white font-semibold text-lg">Applying for loan has never been this easy.</p>
-          <p className="text-white font-semibold text-lg">Apply with Wizz now, and your cash advance will be delivered in 15 minutes</p>
+          <p className="text-white font-semibold text-lg break-normal">Apply with Wizz now, and your cash advance will be<br /> delivered in 15 minutes</p>
         </div>
         <div className="">
           <Image className="fixed bottom-0" src="/persona.png" alt="persona" width={250} height={200} />
@@ -240,6 +260,20 @@ export default function NewReportPage() {
                     placeholder="Type occupation"
                   />
                 </div>
+                <div className="w-full">
+                  <Input
+                    type="number"
+                    label="Monthly Income"
+                    name="monthly_income"
+                    placeholder="Rp 1000000"
+                  />
+                </div>
+                <div className="w-full">
+                  <SelectInput
+                    label="Gender"
+                    name="gender"
+                    options={["Male", "Female"]} />
+                </div>
 
                 <div className="w-full col-span-2">
 
@@ -275,15 +309,10 @@ export default function NewReportPage() {
                   />
                 </div>
                 <div className="sm:col-span-2">
-                  <RangeStepper
+                  <SelectInput
                     label="Tenure"
                     name="tenure"
-                    min={3}
-                    max={12}
-                    step={3}
-                    initialValue={6}
-                    units="months"
-                  />
+                    options={["3 months", "6 months", "9 months", "12 months"]} />
                 </div>
                 <div className="sm:col-span-2">
                   <Input
