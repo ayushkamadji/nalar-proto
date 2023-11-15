@@ -5,6 +5,8 @@ import { cva, type VariantProps } from "class-variance-authority"
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import React, { useState } from 'react'
+import { SelectInput } from '../partner-example/page'
+import Image from 'next/image'
 
 function ReportSideBar({ fullName, email }: { fullName: string, email: string }) {
   return (
@@ -25,38 +27,7 @@ function ReportSideBar({ fullName, email }: { fullName: string, email: string })
               {fullName}
             </a>
           </li>
-          <li>
-            <a href="#" className="flex items-center space-x-4 font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300 hover:dark:text-white">
-              <div className="relative mr-2.5">
-              </div>
-              Bonnie Green
-            </a>
-          </li>
-          <li>
-            <a href="#" className="flex items-center space-x-4 font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300 hover:dark:text-white">
-              <div className="relative mr-2.5">
-              </div>
-              Joseph McFall
-            </a>
-          </li>
-          <li>
-            <a href="#" className="flex items-center space-x-4 font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300 hover:dark:text-white">
-              <div className="relative mr-2.5">
-              </div>
-              Lana Byrd
-            </a>
-          </li>
         </ul>
-        {/* <ul className="space-y-2 pt-5 mt-5 mb-4">
-          <li>
-            <Link href="/report/new" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-              <svg className="w-[18px] h-[18px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 1v16M1 9h16" />
-              </svg>
-              <span className="ml-3">Add customer</span>
-            </Link>
-          </li>
-        </ul> */}
       </div>
     </aside>
   )
@@ -159,8 +130,8 @@ function ReportContent({ fullName, email }: ReportContentProps) {
         <Accordion title={{ label: "Fraud Assessment" }} initialStateActive>
           <FraudAssesmentContent fullName={fullName} email={email} />
         </Accordion>
-        <Accordion title={{ label: "Credit Assessment" }} initialStateActive={false}>
-          <></>
+        <Accordion title={{ label: "Credit Assessment" }} initialStateActive>
+          <CreditAssesmentContent fullName={fullName} email={email} />
         </Accordion>
       </div>
     </div>
@@ -178,9 +149,95 @@ function ReportCards() {
         <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Grade</h5>
         <p className="font-semibold text-blue-400 ">D</p>
       </div>
+      <div className="p-4 w-36 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
+        <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Limit</h5>
+        <p className="font-semibold text-blue-400 ">0</p>
+      </div>
+      <div className="p-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
+        <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Interest Rate</h5>
+        <p className="font-semibold text-blue-400 ">0</p>
+      </div>
       <div className="p-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
         <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Recommendation</h5>
         <p className="font-semibold text-red-400 ">Reject</p>
+      </div>
+    </div>
+  )
+}
+
+type CreditAssesmentContentProps = {
+  fullName: string
+  email: string
+}
+
+function CreditAssesmentContent({ fullName, email }: CreditAssesmentContentProps) {
+  return (
+    <div className="block flex flex-col  rounded-lg shadow p-6 mt-6 bg-gray-100 dark:bg-gray-800" >
+      <div className="flex flex-col gap-12">
+        <div className="grid grid-cols-2">
+          <div className="flex flex-col">
+            <div className="flex justify-between">
+              <h3 className="font-semibold">Name</h3>
+              <p className="text-opacity-95">{fullName}</p>
+            </div>
+            <div className="flex justify-between">
+              <h3 className="font-semibold">NIK</h3>
+              <p className="text-opacity-95">327320190721009</p>
+            </div>
+            <div className="flex justify-between">
+              <h3 className="font-semibold">Date of birth/Age</h3>
+              <p className="text-opacity-95">18 May 1992/31 Years Old</p>
+            </div>
+            <div className="flex justify-between">
+              <h3 className="font-semibold">Gender</h3>
+              <p className="text-opacity-95">Male</p>
+            </div>
+            <div className="flex justify-between">
+              <h3 className="font-semibold">Longitude</h3>
+              <p className="text-opacity-95">-7.74124</p>
+            </div>
+            <div className="flex justify-between">
+              <h3 className="font-semibold">Latitude</h3>
+              <p className="text-opacity-95">110.40845</p>
+            </div>
+            <br />
+            <div className="flex justify-between">
+              <h3 className="font-semibold">Monthly Income Estimation</h3>
+              <p className="text-opacity-95">Rp 4,000,000</p>
+            </div>
+            <div className="flex justify-between">
+              <h3 className="font-semibold">Average Monthly Spending</h3>
+              <p className="text-opacity-95">Rp 1,567,225</p>
+            </div>
+            <br />
+            <div className="flex justify-start items-center gap-12">
+              <div className="flex flex-col items-start">
+                <p className="font-bold">Total Score</p>
+                <p className="font-semibold text-blue-400">880</p>
+              </div>
+              <div className="flex flex-col items-start">
+                <p className="font-bold">Grade</p>
+                <p className="font-semibold text-blue-400">D</p>
+              </div>
+              <div className="flex flex-col items-start">
+                <p className="font-bold">Recommendation</p>
+                <Badge color="green">Approve</Badge>
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col px-12">
+            <select title="period" id="period" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              <option selected>January 2023 - December 2023</option>
+              <option>January 2022 - December 2022</option>
+            </select>
+          </div>
+        </div>
+        <div className="flex flex-wrap gap-8 items-start">
+          <Image src="/nalar-graph1.png" width={800} height={400} alt="ewallet-graph" />
+          <Image src="/nalar-graph2.png" width={200} height={400} alt="transaction-graph" />
+          <Image src="/nalar-graph3.png" width={500} height={300} alt="products-graph" />
+          <Image src="/nalar-graph4.png" width={500} height={300} alt="weekly-graph" />
+        </div>
       </div>
     </div>
   )
