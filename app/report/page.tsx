@@ -5,7 +5,6 @@ import { cva, type VariantProps } from "class-variance-authority"
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import React, { useState } from 'react'
-import { SelectInput } from '../partner-example/page'
 import Image from 'next/image'
 
 function ReportSideBar({ fullName, email }: { fullName: string, email: string }) {
