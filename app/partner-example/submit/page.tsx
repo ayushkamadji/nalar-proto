@@ -8,6 +8,8 @@ export default function PartnerSubmitPage() {
   const searchParams = useSearchParams();
   const fullName = searchParams.get("fullName");
   const email = searchParams.get("email");
+  const nik = searchParams.get("nik");
+  const phone = searchParams.get("phone");
 
   return (
     <main className="grid grid-cols-[1fr_2fr] bg-white text-black">
@@ -32,7 +34,7 @@ export default function PartnerSubmitPage() {
         <a href="/" className="text-sky-500 font-semibold hover:text-sky-500/80">Back to home</a>
       </div>
       <div className="fixed right-6 bottom-6">
-        <Link href={`/report?fullName=${fullName}&email=${email}`}>
+        <Link href={`/report?fullName=${fullName}&email=${email}&nik=${nik}&phone=${phone}`}>
           <button type="button" className="flex shadow-xl items-center justify-center text-white bg-pink-700 rounded-full hover:bg-pink-800 dark:bg-pink-600 dark:hover:bg-pink-700 focus:ring-4 focus:ring-pink-300 px-3 py-2 focus:outline-none dark:focus:ring-pink-800">
             <span className="text-xs">DEMO: Go to nalar.ai Report Demo</span>
           </button>
