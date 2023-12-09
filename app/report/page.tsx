@@ -2,7 +2,6 @@
 
 import { cn } from '@/lib/utils'
 import { cva, type VariantProps } from "class-variance-authority"
-import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import React, { useState } from 'react'
 import Image from 'next/image'
