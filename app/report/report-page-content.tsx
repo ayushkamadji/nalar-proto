@@ -396,6 +396,12 @@ export default function ReportPageContent({ data }: { data: FraudData }) {
   const nik = searchParams.get("nik") || "327320190721009"
   const phone = searchParams.get("phone") || "08123456789"
 
+  if (!data) {
+    return (
+      <div className="min-h-screen md:pl-[16rem] md:pt-16 w-full bg-white text-black">No data found for NIK and Phone (please use partner form)</div>
+    )
+  }
+
   return (
     <>
       <ReportSideBar fullName={fullName} email={email} />

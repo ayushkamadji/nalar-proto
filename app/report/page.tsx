@@ -1,3 +1,4 @@
+import { redirect } from 'next/navigation'
 import ReportPageContent from './report-page-content'
 
 const getPredictionUrl = (nik: string, phone: string) => `https://ayushkamadji.pythonanywhere.com/predict?nik=${nik}&phone=${phone}`
@@ -10,7 +11,7 @@ async function getData(nik: string, phone: string) {
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data')
+    return;
   }
 
   return res.json()
@@ -18,7 +19,6 @@ async function getData(nik: string, phone: string) {
 
 export default async function ReportPage({ searchParams }: { searchParams: { nik: string, phone: string } }) {
   const data = await getData(searchParams.nik, searchParams.phone)
-  console.log(data.fraud_indicator)
 
   return (
     <ReportPageContent data={data} />
